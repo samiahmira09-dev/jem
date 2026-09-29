@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #10030f;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.page {
+    position: relative;
+    min-height: 100vh;
+    padding: 35px 20px 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center,
+        #350c2f 0%,
+        #180719 45%,
+        #10030f 100%);
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+
+    color: #ff2990;
+
+    font-size: 65px;
+
+    opacity: 0.55;
+
+    text-shadow:
+        0 0 8px #ff2990,
+        0 0 18px #ff2990,
+        0 0 30px #ff2990;
+
+    animation: heartGlow 2s ease-in-out infinite alternate;
+}
+
+
+/* LEFT TOP */
+.heart1 {
+    top: 20%;
+    left: 8%;
+}
+
+
+/* RIGHT MIDDLE */
+.heart2 {
+    top: 43%;
+    right: 8%;
+}
+
+
+/* LEFT LOWER */
+.heart3 {
+    bottom: 25%;
+    left: 6%;
+    font-size: 70px;
+}
+
+
+/* RIGHT LOWER */
+.heart4 {
+    bottom: 10%;
+    right: 25%;
+}
+
+
+/* RIGHT TOP */
+.heart5 {
+    top: 8%;
+    right: 12%;
+    font-size: 50px;
+}
+
+
+/* LEFT MIDDLE */
+.heart6 {
+    bottom: 40%;
+    left: 22%;
+    font-size: 55px;
+}
+
+
+/* =========================
+   HEART GLOW
+========================= */
+
+@keyframes heartGlow {
+
+    from {
+        transform: scale(1);
+
+        text-shadow:
+            0 0 8px #ff2990,
+            0 0 18px #ff2990;
+    }
+
+    to {
+        transform: scale(1.08);
+
+        text-shadow:
+            0 0 12px #ff2990,
+            0 0 25px #ff2990,
+            0 0 40px #ff2990;
+    }
+}
+
+
+/* =========================
+   CONTENT LAYER
+========================= */
+
+.pictures,
+.title,
+.love-button,
+.message {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================
+   CENTER PICTURE
+========================= */
+
+.pictures {
+    margin-top: 15px;
+    margin-bottom: 28px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+    width: 145px;
+    height: 145px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #ff2990;
+
+    box-shadow:
+        0 0 10px #ff2990,
+        0 0 25px #ff2990,
+        0 0 45px rgba(255, 41, 144, 0.7);
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    text-align: center;
+
+    font-size: 43px;
+    font-weight: 900;
+    line-height: 1.08;
+
+    margin-bottom: 38px;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 12px #ff2990,
+        0 0 25px #ff2990;
+}
+
+
+/* =========================
+   ENVELOPE BUTTON
+========================= */
+
+.love-button {
+    width: 275px;
+    height: 135px;
+
+    border-radius: 35px;
+
+    background: rgba(55, 5, 45, 0.55);
+
+    border: 5px solid #ff2990;
+
+    color: white;
+
+    font-size: 45px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #ff2990,
+        0 0 25px #ff2990,
+        inset 0 0 20px rgba(255, 41, 144, 0.15);
+
+    transition: 0.3s ease;
+}
+
+.love-button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    width: min(90%, 430px);
+
+    margin-top: 25px;
+
+    padding: 25px 22px;
+
+    background: rgba(35, 4, 30, 0.96);
+
+    border: 3px solid #ff2990;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 12px #ff2990,
+        0 0 30px rgba(255, 41, 144, 0.5);
+
+    opacity: 0;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.5s ease,
+        max-height 0.6s ease,
+        transform 0.5s ease;
+}
+
+
+/* OPEN MESSAGE */
+
+.message.show {
+    opacity: 1;
+
+    max-height: 500px;
+
+    transform: translateY(0);
+}
+
+
+/* MESSAGE TITLE */
+
+.message h2 {
+    color: #ff9dcc;
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+
+    text-shadow:
+        0 0 8px #ff2990;
+}
+
+
+/* MESSAGE TEXT */
+
+.message p {
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: #fff;
+
+    margin-bottom: 15px;
+}
+
+
+/* LAST MESSAGE */
+
+.message .last {
+    color: #ff9dcc;
+
+    font-weight: bold;
+
+    margin-top: 12px;
+}
+
+
+/* SIGNATURE */
+
+.signature {
+    margin-bottom: 0 !important;
+
+    font-size: 18px !important;
+
+    color: #ffb4d9 !important;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .page {
+        padding-top: 30px;
+    }
+
+    .photo {
+        width: 135px;
+        height: 135px;
+    }
+
+    .title {
+        font-size: 39px;
+        margin-bottom: 32px;
+    }
+
+    .love-button {
+        width: 270px;
+        height: 130px;
+    }
+
+    .message {
+        width: 92%;
+    }
+
+    .message p {
+        font-size: 15px;
+    }
+}

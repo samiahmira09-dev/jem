@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Teacher's Month ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         BACKGROUND MUSIC
+    ========================== -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="be87a32c.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- =========================
+         FLOATING HEARTS
+    ========================== -->
+    <div class="hearts">
+        <div class="heart heart1">♡</div>
+        <div class="heart heart2">♡</div>
+        <div class="heart heart3">♥</div>
+        <div class="heart heart4">♡</div>
+        <div class="heart heart5">♥</div>
+        <div class="heart heart6">♡</div>
+    </div>
+
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+    <div class="page">
+
+        <!-- =========================
+             CENTER PICTURE
+        ========================== -->
+        <div class="pictures">
+
+            <img
+                src="mak.jpg"
+                class="photo"
+                alt="Teacher's Month Picture"
+            >
+
+        </div>
+
+
+        <!-- =========================
+             TITLE
+        ========================== -->
+        <div class="title">
+            <div>Happy Teacher's</div>
+            <div>Month!</div>
+        </div>
+
+
+        <!-- =========================
+             ENVELOPE BUTTON
+        ========================== -->
+        <button
+            id="loveButton"
+            class="love-button"
+            aria-label="Open message"
+        >
+            💌
+        </button>
+
+
+        <!-- =========================
+             MESSAGE
+        ========================== -->
+        <div id="message" class="message">
+
+            <h2>💗 Thank You, Ma'am! 💗</h2>
+
+            <p>
+                Thank you so much, Ma’am, for being such a kind
+                and dedicated teacher. Your patience and effort
+                mean a lot to us.
+            </p>
+
+            <p>
+                We’re very grateful for this opportunity to learn
+                from you, and we’ll always remember the lessons
+                you shared with us. 🌷
+            </p>
+
+            <p class="last">
+                Happy Teacher's Month! 💐
+            </p>
+
+            <p class="signature">
+                With love and gratitude, 💕
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
+
+        const music = document.getElementById("bgMusic");
+        const loveButton = document.getElementById("loveButton");
+        const message = document.getElementById("message");
+
+
+        /* MUSIC VOLUME */
+        music.volume = 0.7;
+
+
+        /* =========================
+           TRY AUTOPLAY
+        ========================== */
+        window.addEventListener("load", function () {
+
+            music.play().catch(function () {
+                console.log("Autoplay blocked by browser.");
+            });
+
+        });
+
+
+        /* =========================
+           FIRST TAP STARTS MUSIC
+        ========================== */
+        document.addEventListener("click", function () {
+
+            music.play().catch(function () {});
+
+        }, {
+            once: true
+        });
+
+
+        /* =========================
+           ENVELOPE BUTTON
+        ========================== */
+        loveButton.addEventListener("click", function () {
+
+            message.classList.toggle("show");
+
+            music.play().catch(function () {});
+
+        });
+
+    </script>
+
+</body>
+</html>
